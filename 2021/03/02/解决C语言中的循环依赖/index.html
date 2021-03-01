@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="背景：使用面向对象思想，实现C语言的FSM状态机。 在结构体内嵌入函数指针模仿C++的成员函数。由于没用this指针，使用NET_FSM_S* fsm代替。 12345678910111213141516171819202122232425typedef struct s_NET_ACTION&amp;#123;    int eEvent;                           &#x2F;&#x2F;特定事">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2021/03/01/hello-world/index.html">
+<meta property="og:title" content="解决C语言中的循环依赖">
+<meta property="og:url" content="http://example.com/2021/03/02/%E8%A7%A3%E5%86%B3C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/index.html">
 <meta property="og:site_name" content="CyrilJiang&#39;s blogs">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="背景：使用面向对象思想，实现C语言的FSM状态机。 在结构体内嵌入函数指针模仿C++的成员函数。由于没用this指针，使用NET_FSM_S* fsm代替。 12345678910111213141516171819202122232425typedef struct s_NET_ACTION&amp;#123;    int eEvent;                           &#x2F;&#x2F;特定事">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-01T14:25:26.240Z">
-<meta property="article:modified_time" content="2021-03-01T14:25:26.240Z">
+<meta property="article:published_time" content="2021-03-01T23:39:43.596Z">
+<meta property="article:modified_time" content="2021-03-01T23:48:11.056Z">
 <meta property="article:author" content="CyrilJiang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/03/01/hello-world/">
+<link rel="canonical" href="http://example.com/2021/03/02/%E8%A7%A3%E5%86%B3C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Hello World | CyrilJiang's blogs</title>
+  <title>解决C语言中的循环依赖 | CyrilJiang's blogs</title>
   
 
 
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/01/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/02/%E8%A7%A3%E5%86%B3C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          解决C语言中的循环依赖
         </h1>
 
         <div class="post-meta">
@@ -172,8 +172,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-03-01 22:25:26" itemprop="dateCreated datePublished" datetime="2021-03-01T22:25:26+08:00">2021-03-01</time>
+              <time title="创建时间：2021-03-02 07:39:43 / 修改时间：07:48:11" itemprop="dateCreated datePublished" datetime="2021-03-02T07:39:43+08:00">2021-03-02</time>
             </span>
 
           
@@ -187,19 +188,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <p>背景：使用面向对象思想，实现C语言的FSM状态机。</p>
+<p>在结构体内嵌入函数指针模仿C++的成员函数。由于没用this指针，使用NET_FSM_S* fsm代替。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">s_NET_ACTION</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> eEvent;                           <span class="comment">//特定事件</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> (*callBack)(NET_FSM_S* fsm);     <span class="comment">//事件发生后的处理回调函数</span></span><br><span class="line">&#125;NET_ACTION_ST;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">s_NET_STA_ATBLE</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span>  eStatus;                <span class="comment">//某一个确定的状态</span></span><br><span class="line">    <span class="keyword">int</span> iActCnt;                <span class="comment">//某一个确定的状态对应的事件总数</span></span><br><span class="line">    NET_ACTION_ST* stActTab;    <span class="comment">//状态对应的所有事件表数组指针,大小与iActCnt一致</span></span><br><span class="line">&#125;NET_STA_TAB_ST;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">s_NET_FSM</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> curState;                        <span class="comment">//当前状态</span></span><br><span class="line">    <span class="keyword">int</span> curEvent;                        <span class="comment">//当前事件</span></span><br><span class="line">    <span class="keyword">int</span> iStaCnt;                         <span class="comment">//状态总数</span></span><br><span class="line">    NET_STA_TAB_ST* curStaTab;           <span class="comment">//当前状态表指针</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> (*init)(NET_FSM_S* fsm, NET_STA_TAB_ST* pTab);<span class="comment">//初始化</span></span><br><span class="line">    <span class="keyword">void</span> (*setStatus)(NET_FSM_S* fsm, <span class="keyword">int</span> status); <span class="comment">//FSM状态跳转接口</span></span><br><span class="line">    <span class="keyword">void</span> (*eventHandle)(NET_FSM_S* fsm);<span class="comment">//事件处理</span></span><br><span class="line">&#125;NET_FSM_S;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>但是编译时产生如下报错：</p>
+<p>NET_ARG_baseFSM.h(25,25): error C3646: “init”: 未知重写说明符</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fancycow/article/details/10577043">经查阅</a>得知这3个结构体形成循环依赖，如下：</p>
+<p><code>NET_ACTION_ST-&gt;NET_FSM_S-&gt;NET_STA_TAB_ST-&gt;NET_ACTION_ST....</code></p>
+<p>其中“-&gt;”符号表示“依赖于”。修改后。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">s_NET_FSM</span> <span class="title">NET_FSM_S</span>;</span><span class="comment">//前向声明，解决循环依赖 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">s_NET_ACTION</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> eEvent;                           <span class="comment">//特定事件</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> (*callBack)(NET_FSM_S* fsm);          <span class="comment">//事件发生后的处理回调函数</span></span><br><span class="line">&#125;NET_ACTION_ST;</span><br><span class="line">.....</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>在文件头部添加NET_FSM_S的提前声明，告诉编译器有这个符号，在后文实现。</p>
 
     </div>
 
@@ -214,10 +214,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/03/02/%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E5%BD%A2%E5%85%A5%E5%8F%82%E7%9A%84%E5%80%BC/" rel="next" title="改变指针型入参的值">
-      改变指针型入参的值 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/03/02/%E8%8A%B1%E7%94%9F%E5%A3%B3%E7%A9%BF%E9%80%8F%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="prev" title="花生壳穿透实现远程树莓派">
+      <i class="fa fa-chevron-left"></i> 花生壳穿透实现远程树莓派
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/02/%E8%A1%8C%E8%BD%A6%E6%80%BB%E7%BB%93/" rel="next" title="驾驶汽车总结">
+      驾驶汽车总结 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -277,7 +280,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
