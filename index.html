@@ -69,65 +69,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-C/C语言VSCode环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" class="article-date">
-  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">C语言VSCode环境.md</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="C-语言-VSCode-环境"><a href="#C-语言-VSCode-环境" class="headerlink" title="C 语言 VSCode 环境"></a>C 语言 VSCode 环境</h1><p>实现 VSCode 调试 C 代码，作为学习环境</p>
-<h2 id="windows-系统-C-编译器"><a href="#windows-系统-C-编译器" class="headerlink" title="windows 系统 C 编译器"></a>windows 系统 C 编译器</h2><p>各种编译器的差别参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/566419668">C&#x2F;C++标准库</a>，常见的有：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.msys2.org/">MSYS2</a>：包含 clang，MinGW，ucrt，体积大</li>
-<li><a target="_blank" rel="noopener" href="https://www.mingw-w64.org/">MinGW-w64</a>：Minimalist GNU for Windows，体积较小</li>
-</ol>
-<h2 id="windows-系统安装-MinGW"><a href="#windows-系统安装-MinGW" class="headerlink" title="windows 系统安装 MinGW"></a>windows 系统安装 MinGW</h2><ol>
-<li>下载解压<br>下载<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z">MinGW-w64 x86_64-posix-seh 版本</a>，解压到”D:\mingw64“。</li>
-<li>添加环境变量<br>右击我的电脑-添加环境变量“D:\mingw64\bin”</li>
-<li>检查是否生效<br>cmd.exe 输入 gcc -v</li>
-</ol>
-<h2 id="windows-系统配置-VSCode"><a href="#windows-系统配置-VSCode" class="headerlink" title="windows 系统配置 VSCode"></a>windows 系统配置 VSCode</h2><p>安装 C&#x2F;C++ Extension Pack 扩展，按照 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/cpp/config-mingw">Get Started with C++ and MinGW-w64 in Visual Studio Code</a>配置即可。</p>
-<p>可能的错误</p>
-<ol>
-<li><p>红色波浪线<br>说明 intellisense 检查语法时未识别符号，应检查 c_cpp_properties.json 里面的”includePath”标签，该标签是 intellisense 检查时使用的路径。</p>
-</li>
-<li><p>编译时出现未找到 xxx .h<br>说明编译器未找到头文件，应检查 tasks.json 里面的”args”标签，该标签描述 gcc 的编译参数。应添加额外引用目录：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// linux</span></span><br><span class="line"><span class="punctuation">[</span></span><br><span class="line">   <span class="string">&quot;-I&quot;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="string">&quot;$&#123;fileDirname&#125;/子目录&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// windows</span></span><br><span class="line"><span class="punctuation">[</span></span><br><span class="line">   <span class="string">&quot;-I&quot;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="string">&quot;$&#123;fileDirname&#125;\\子目录&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" data-id="clq6joqla00005ktkh91xefvr" data-title="C语言VSCode环境.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-C/C语言基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
@@ -142,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">C语言基础知识.md</a>
+      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">C语言基础知识</a>
     </h1>
   
 
@@ -254,7 +195,66 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6joqlg00015ktk5ynh8ezj" data-title="C语言基础知识.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ki7kx0000istkatzg45ig" data-title="C语言基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-C/C语言VSCode环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" class="article-date">
+  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">C语言VSCode环境</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="C-语言-VSCode-环境"><a href="#C-语言-VSCode-环境" class="headerlink" title="C 语言 VSCode 环境"></a>C 语言 VSCode 环境</h1><p>实现 VSCode 调试 C 代码，作为学习环境</p>
+<h2 id="windows-系统-C-编译器"><a href="#windows-系统-C-编译器" class="headerlink" title="windows 系统 C 编译器"></a>windows 系统 C 编译器</h2><p>各种编译器的差别参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/566419668">C&#x2F;C++标准库</a>，常见的有：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.msys2.org/">MSYS2</a>：包含 clang，MinGW，ucrt，体积大</li>
+<li><a target="_blank" rel="noopener" href="https://www.mingw-w64.org/">MinGW-w64</a>：Minimalist GNU for Windows，体积较小</li>
+</ol>
+<h2 id="windows-系统安装-MinGW"><a href="#windows-系统安装-MinGW" class="headerlink" title="windows 系统安装 MinGW"></a>windows 系统安装 MinGW</h2><ol>
+<li>下载解压<br>下载<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z">MinGW-w64 x86_64-posix-seh 版本</a>，解压到”D:\mingw64“。</li>
+<li>添加环境变量<br>右击我的电脑-添加环境变量“D:\mingw64\bin”</li>
+<li>检查是否生效<br>cmd.exe 输入 gcc -v</li>
+</ol>
+<h2 id="windows-系统配置-VSCode"><a href="#windows-系统配置-VSCode" class="headerlink" title="windows 系统配置 VSCode"></a>windows 系统配置 VSCode</h2><p>安装 C&#x2F;C++ Extension Pack 扩展，按照 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/cpp/config-mingw">Get Started with C++ and MinGW-w64 in Visual Studio Code</a>配置即可。</p>
+<p>可能的错误</p>
+<ol>
+<li><p>红色波浪线<br>说明 intellisense 检查语法时未识别符号，应检查 c_cpp_properties.json 里面的”includePath”标签，该标签是 intellisense 检查时使用的路径。</p>
+</li>
+<li><p>编译时出现未找到 xxx .h<br>说明编译器未找到头文件，应检查 tasks.json 里面的”args”标签，该标签描述 gcc 的编译参数。应添加额外引用目录：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// linux</span></span><br><span class="line"><span class="punctuation">[</span></span><br><span class="line">   <span class="string">&quot;-I&quot;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="string">&quot;$&#123;fileDirname&#125;/子目录&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// windows</span></span><br><span class="line"><span class="punctuation">[</span></span><br><span class="line">   <span class="string">&quot;-I&quot;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="string">&quot;$&#123;fileDirname&#125;\\子目录&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" data-id="clq6ki7l20001istkdl531ez3" data-title="C语言VSCode环境" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -282,7 +282,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">C语言循环依赖.md</a>
+      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">C语言循环依赖</a>
     </h1>
   
 
@@ -309,7 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/" data-id="clq6joqlj00035ktk6tpggqf4" data-title="C语言循环依赖.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/" data-id="clq6ki7l50003istk04py0q6o" data-title="C语言循环依赖" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -337,7 +337,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/">C语言改变指针指向.md</a>
+      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/">C语言改变指针指向</a>
     </h1>
   
 
@@ -359,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/" data-id="clq6joqlk00045ktkbrfg444n" data-title="C语言改变指针指向.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/" data-id="clq6ki7l60004istk4p4b0q3x" data-title="C语言改变指针指向" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -387,7 +387,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Java语言基础知识.md</a>
+      <a class="p-name article-title" href="/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Java语言基础知识</a>
     </h1>
   
 
@@ -1068,51 +1068,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6joqll00055ktk7ny2d4fv" data-title="Java语言基础知识.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ki7l70005istkhd9189wl" data-title="Java语言基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-LaTeX/LaTeX语言基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
-  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">LaTeX语言基础知识.md</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6joqln00085ktk3k486oby" data-title="LaTeX语言基础知识.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a></li></ul>
 
     </footer>
   </div>
@@ -1136,7 +1096,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/Markdown/Markdown%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Markdown基础知识.md</a>
+      <a class="p-name article-title" href="/2023/12/15/Markdown/Markdown%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Markdown基础知识</a>
     </h1>
   
 
@@ -1289,11 +1249,51 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/Markdown/Markdown%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6joqlo000a5ktkbo1k3pay" data-title="Markdown基础知识.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/Markdown/Markdown%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ki7l90008istkdq6x8x0f" data-title="Markdown基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LaTeX/LaTeX语言基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
+  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">LaTeX语言基础知识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ki7la000aistkg2ouc10q" data-title="LaTeX语言基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a></li></ul>
 
     </footer>
   </div>
@@ -1317,7 +1317,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/Python/Python%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">Python语言VSCode环境.md</a>
+      <a class="p-name article-title" href="/2023/12/15/Python/Python%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">Python语言VSCode环境</a>
     </h1>
   
 
@@ -1360,7 +1360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/Python/Python%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" data-id="clq6joqlp000d5ktk595pc6kj" data-title="Python语言VSCode环境.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/Python/Python%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" data-id="clq6ki7lc000distkgiaahaoo" data-title="Python语言VSCode环境" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1388,7 +1388,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/XML/XML%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">XML基础知识.md</a>
+      <a class="p-name article-title" href="/2023/12/15/XML/XML%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">XML基础知识</a>
     </h1>
   
 
@@ -1551,7 +1551,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/XML/XML%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6joqlq000e5ktkfl064iw0" data-title="XML基础知识.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/XML/XML%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ki7lc000eistk65dt0uvu" data-title="XML基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1579,7 +1579,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E8%B4%AD/">云服务器选购.md</a>
+      <a class="p-name article-title" href="/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E8%B4%AD/">云服务器选购</a>
     </h1>
   
 
@@ -1720,7 +1720,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E8%B4%AD/" data-id="clq6joqlr000h5ktk26ev3jci" data-title="云服务器选购.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E8%B4%AD/" data-id="clq6ki7le000histk6ndo1cbs" data-title="云服务器选购" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1784,23 +1784,23 @@
       <ul>
         
           <li>
-            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">C语言VSCode环境.md</a>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">C语言基础知识</a>
           </li>
         
           <li>
-            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">C语言基础知识.md</a>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">C语言VSCode环境</a>
           </li>
         
           <li>
-            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">C语言循环依赖.md</a>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">C语言循环依赖</a>
           </li>
         
           <li>
-            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/">C语言改变指针指向.md</a>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/">C语言改变指针指向</a>
           </li>
         
           <li>
-            <a href="/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Java语言基础知识.md</a>
+            <a href="/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Java语言基础知识</a>
           </li>
         
       </ul>
