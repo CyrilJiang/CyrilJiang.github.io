@@ -69,6 +69,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-C/C语言VSCode环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" class="article-date">
+  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">C语言VSCode环境</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="C-语言-VSCode-环境"><a href="#C-语言-VSCode-环境" class="headerlink" title="C 语言 VSCode 环境"></a>C 语言 VSCode 环境</h1><p>实现 VSCode 调试 C 代码，作为学习环境</p>
+<h2 id="windows-系统-C-编译器"><a href="#windows-系统-C-编译器" class="headerlink" title="windows 系统 C 编译器"></a>windows 系统 C 编译器</h2><p>各种编译器的差别参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/566419668">C&#x2F;C++标准库</a>，常见的有：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.msys2.org/">MSYS2</a>：包含 clang，MinGW，ucrt，体积大</li>
+<li><a target="_blank" rel="noopener" href="https://www.mingw-w64.org/">MinGW-w64</a>：Minimalist GNU for Windows，体积较小</li>
+</ol>
+<h2 id="windows-系统安装-MinGW"><a href="#windows-系统安装-MinGW" class="headerlink" title="windows 系统安装 MinGW"></a>windows 系统安装 MinGW</h2><ol>
+<li>下载解压<br>下载<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z">MinGW-w64 x86_64-posix-seh 版本</a>，解压到”D:\mingw64“。</li>
+<li>添加环境变量<br>右击我的电脑-添加环境变量“D:\mingw64\bin”</li>
+<li>检查是否生效<br>cmd.exe 输入 gcc -v</li>
+</ol>
+<h2 id="windows-系统配置-VSCode"><a href="#windows-系统配置-VSCode" class="headerlink" title="windows 系统配置 VSCode"></a>windows 系统配置 VSCode</h2><p>安装 C&#x2F;C++ Extension Pack 扩展，按照 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/cpp/config-mingw">Get Started with C++ and MinGW-w64 in Visual Studio Code</a>配置即可。</p>
+<p>可能的错误</p>
+<ol>
+<li><p>红色波浪线<br>说明 intellisense 检查语法时未识别符号，应检查 c_cpp_properties.json 里面的”includePath”标签，该标签是 intellisense 检查时使用的路径。</p>
+</li>
+<li><p>编译时出现未找到 xxx .h<br>说明编译器未找到头文件，应检查 tasks.json 里面的”args”标签，该标签描述 gcc 的编译参数。应添加额外引用目录：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// linux</span></span><br><span class="line"><span class="punctuation">[</span></span><br><span class="line">   <span class="string">&quot;-I&quot;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="string">&quot;$&#123;fileDirname&#125;/子目录&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// windows</span></span><br><span class="line"><span class="punctuation">[</span></span><br><span class="line">   <span class="string">&quot;-I&quot;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="string">&quot;$&#123;fileDirname&#125;\\子目录&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" data-id="clq6ky14h00007stkfhaiaosz" data-title="C语言VSCode环境" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-C/C语言基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
@@ -195,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ki7kx0000istkatzg45ig" data-title="C语言基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ky14m00017stk1v1h3tnh" data-title="C语言基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -209,9 +268,9 @@
 
 
   
-    <article id="post-C/C语言VSCode环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-C/C语言改变指针指向" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" class="article-date">
+    <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/" class="article-date">
   <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
 </a>
     
@@ -223,7 +282,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">C语言VSCode环境</a>
+      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/">C语言改变指针指向</a>
     </h1>
   
 
@@ -231,30 +290,21 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="C-语言-VSCode-环境"><a href="#C-语言-VSCode-环境" class="headerlink" title="C 语言 VSCode 环境"></a>C 语言 VSCode 环境</h1><p>实现 VSCode 调试 C 代码，作为学习环境</p>
-<h2 id="windows-系统-C-编译器"><a href="#windows-系统-C-编译器" class="headerlink" title="windows 系统 C 编译器"></a>windows 系统 C 编译器</h2><p>各种编译器的差别参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/566419668">C&#x2F;C++标准库</a>，常见的有：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.msys2.org/">MSYS2</a>：包含 clang，MinGW，ucrt，体积大</li>
-<li><a target="_blank" rel="noopener" href="https://www.mingw-w64.org/">MinGW-w64</a>：Minimalist GNU for Windows，体积较小</li>
-</ol>
-<h2 id="windows-系统安装-MinGW"><a href="#windows-系统安装-MinGW" class="headerlink" title="windows 系统安装 MinGW"></a>windows 系统安装 MinGW</h2><ol>
-<li>下载解压<br>下载<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z">MinGW-w64 x86_64-posix-seh 版本</a>，解压到”D:\mingw64“。</li>
-<li>添加环境变量<br>右击我的电脑-添加环境变量“D:\mingw64\bin”</li>
-<li>检查是否生效<br>cmd.exe 输入 gcc -v</li>
-</ol>
-<h2 id="windows-系统配置-VSCode"><a href="#windows-系统配置-VSCode" class="headerlink" title="windows 系统配置 VSCode"></a>windows 系统配置 VSCode</h2><p>安装 C&#x2F;C++ Extension Pack 扩展，按照 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/cpp/config-mingw">Get Started with C++ and MinGW-w64 in Visual Studio Code</a>配置即可。</p>
-<p>可能的错误</p>
-<ol>
-<li><p>红色波浪线<br>说明 intellisense 检查语法时未识别符号，应检查 c_cpp_properties.json 里面的”includePath”标签，该标签是 intellisense 检查时使用的路径。</p>
-</li>
-<li><p>编译时出现未找到 xxx .h<br>说明编译器未找到头文件，应检查 tasks.json 里面的”args”标签，该标签描述 gcc 的编译参数。应添加额外引用目录：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// linux</span></span><br><span class="line"><span class="punctuation">[</span></span><br><span class="line">   <span class="string">&quot;-I&quot;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="string">&quot;$&#123;fileDirname&#125;/子目录&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// windows</span></span><br><span class="line"><span class="punctuation">[</span></span><br><span class="line">   <span class="string">&quot;-I&quot;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="string">&quot;$&#123;fileDirname&#125;\\子目录&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure></li>
-</ol>
+        <h1 id="C-语言改变指针指向"><a href="#C-语言改变指针指向" class="headerlink" title="C 语言改变指针指向"></a>C 语言改变指针指向</h1><p>[toc]</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>入参为一个指针，希望在函数内改变其指向。调用函数传入的是一个指针类型实参。经测试多遍，一直没能改变其指向。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">NET_ARG_DoorFSMgetCurEvtTab</span><span class="params">(NET_FSM_S* fsm, OUT NET_ACTION_ST* curActTab)</span></span><br><span class="line">&#123;</span><br><span class="line">    NET_STA_TAB_ST *curStaTab = &amp;(fsm-&gt;curStaTab[fsm-&gt;getCurState(fsm)]);</span><br><span class="line">    curActTab = &amp;curStaTab-&gt;stActTab[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> curStaTab-&gt;iActCnt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>突然想到指针也是一个变量。只要是变量，传入的实参和形参是分离的，也就是说计算机会重新给入参分配栈空间。</p>
+<p>那么，解决的方法就是在调用者处传入一个指针变量的地址。在被调用处通过这个指针变量的地址获取实际的指针变量修改。修改后：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">NET_ARG_DoorFSMgetCurEvtTab</span><span class="params">(NET_FSM_S* fsm, OUT NET_ACTION_ST** curActTab)</span></span><br><span class="line">&#123;</span><br><span class="line">    NET_STA_TAB_ST *curStaTab = &amp;(fsm-&gt;curStaTab[fsm-&gt;getCurState(fsm)]);</span><br><span class="line">    *curActTab = &amp;curStaTab-&gt;stActTab[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> curStaTab-&gt;iActCnt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方法是通过将指针地址作为指针的替身傀儡。消除栈分配内存的影响，从而避开了被重新初始化的命运。</p>
+<h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><p>我真是逗 o((⊙﹏⊙))o.，这不是双重指针吗？</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" data-id="clq6ki7l20001istkdl531ez3" data-title="C语言VSCode环境" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/" data-id="clq6ky14r00037stk8dmvhqzl" data-title="C语言改变指针指向" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -309,57 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/" data-id="clq6ki7l50003istk04py0q6o" data-title="C语言循环依赖" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-C/C语言改变指针指向" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/" class="article-date">
-  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/">C语言改变指针指向</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="C-语言改变指针指向"><a href="#C-语言改变指针指向" class="headerlink" title="C 语言改变指针指向"></a>C 语言改变指针指向</h1><p>[toc]</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>入参为一个指针，希望在函数内改变其指向。调用函数传入的是一个指针类型实参。经测试多遍，一直没能改变其指向。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">NET_ARG_DoorFSMgetCurEvtTab</span><span class="params">(NET_FSM_S* fsm, OUT NET_ACTION_ST* curActTab)</span></span><br><span class="line">&#123;</span><br><span class="line">    NET_STA_TAB_ST *curStaTab = &amp;(fsm-&gt;curStaTab[fsm-&gt;getCurState(fsm)]);</span><br><span class="line">    curActTab = &amp;curStaTab-&gt;stActTab[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> curStaTab-&gt;iActCnt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>突然想到指针也是一个变量。只要是变量，传入的实参和形参是分离的，也就是说计算机会重新给入参分配栈空间。</p>
-<p>那么，解决的方法就是在调用者处传入一个指针变量的地址。在被调用处通过这个指针变量的地址获取实际的指针变量修改。修改后：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">NET_ARG_DoorFSMgetCurEvtTab</span><span class="params">(NET_FSM_S* fsm, OUT NET_ACTION_ST** curActTab)</span></span><br><span class="line">&#123;</span><br><span class="line">    NET_STA_TAB_ST *curStaTab = &amp;(fsm-&gt;curStaTab[fsm-&gt;getCurState(fsm)]);</span><br><span class="line">    *curActTab = &amp;curStaTab-&gt;stActTab[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> curStaTab-&gt;iActCnt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方法是通过将指针地址作为指针的替身傀儡。消除栈分配内存的影响，从而避开了被重新初始化的命运。</p>
-<h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><p>我真是逗 o((⊙﹏⊙))o.，这不是双重指针吗？</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/" data-id="clq6ki7l60004istk4p4b0q3x" data-title="C语言改变指针指向" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/" data-id="clq6ky14w00047stk624kg1zh" data-title="C语言循环依赖" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1068,11 +1068,51 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ki7l70005istkhd9189wl" data-title="Java语言基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ky14x00057stk0rgp5dfo" data-title="Java语言基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LaTeX/LaTeX语言基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
+  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">LaTeX语言基础知识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ky15000087stkc9l8ervl" data-title="LaTeX语言基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a></li></ul>
 
     </footer>
   </div>
@@ -1111,7 +1151,8 @@
 <p>#### 四级标题</p>
 <p>##### 五级标题</p>
 <p>###### 六级标题</p>
-<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><blockquote>
+<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><p>&gt; 一级区块<br>&gt;<br>&gt; &gt; 二级区块<br>&gt; &gt;<br>&gt; &gt; &gt; 三级区块<br>&gt; &gt; &gt;<br>&gt; &gt; &gt; 1. list 1<br>&gt; &gt; &gt;<br>&gt; &gt; &gt; - item<br>&gt;</p>
+<blockquote>
 <p>一级区块</p>
 <blockquote>
 <p>二级区块</p>
@@ -1249,51 +1290,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/Markdown/Markdown%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ki7l90008istkdq6x8x0f" data-title="Markdown基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/Markdown/Markdown%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ky151000a7stkeshl1pli" data-title="Markdown基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-LaTeX/LaTeX语言基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
-  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">LaTeX语言基础知识</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/LaTeX/LaTeX%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ki7la000aistkg2ouc10q" data-title="LaTeX语言基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a></li></ul>
 
     </footer>
   </div>
@@ -1360,7 +1361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/Python/Python%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" data-id="clq6ki7lc000distkgiaahaoo" data-title="Python语言VSCode环境" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/Python/Python%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" data-id="clq6ky152000d7stkdx8c6vc1" data-title="Python语言VSCode环境" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1551,7 +1552,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/XML/XML%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ki7lc000eistk65dt0uvu" data-title="XML基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/XML/XML%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6ky153000e7stk6jjj0xhn" data-title="XML基础知识" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1720,7 +1721,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E8%B4%AD/" data-id="clq6ki7le000histk6ndo1cbs" data-title="云服务器选购" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E8%B4%AD/" data-id="clq6ky154000h7stke1ca5wla" data-title="云服务器选购" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1784,19 +1785,19 @@
       <ul>
         
           <li>
-            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">C语言基础知识</a>
-          </li>
-        
-          <li>
             <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">C语言VSCode环境</a>
           </li>
         
           <li>
-            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">C语言循环依赖</a>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">C语言基础知识</a>
           </li>
         
           <li>
             <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/">C语言改变指针指向</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">C语言循环依赖</a>
           </li>
         
           <li>
