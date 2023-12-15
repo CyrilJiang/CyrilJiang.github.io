@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>XML基础知识.md | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="XML 基础知识[TOC] 简介 XML（Extensible Markup Language,可扩展标记语言） XML 被设计用来传输和存储数据 不是一种编程语言 新增元素不会引起程序崩溃 任意深度子元素  语言类比 XML 和 markdown 和 latex 一样记录内容，但不是所见即所得 XML 和 json 类似，都是数据交互格式- xml 是重量级的，json 是轻量级的 xml 在传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XML基础知识.md">
+<meta property="og:url" content="http://example.com/2023/12/15/XML/XML%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="XML 基础知识[TOC] 简介 XML（Extensible Markup Language,可扩展标记语言） XML 被设计用来传输和存储数据 不是一种编程语言 新增元素不会引起程序崩溃 任意深度子元素  语言类比 XML 和 markdown 和 latex 一样记录内容，但不是所见即所得 XML 和 json 类似，都是数据交互格式- xml 是重量级的，json 是轻量级的 xml 在传">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-15T09:58:47.996Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="XML">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-XML/XML基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/15/XML/XML%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
+  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      XML基础知识.md
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="XML-基础知识"><a href="#XML-基础知识" class="headerlink" title="XML 基础知识"></a>XML 基础知识</h1><p>[TOC]</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/XML">XML</a>（Extensible Markup Language,可扩展标记语言）</li>
+<li>XML 被设计用来传输和存储数据</li>
+<li>不是一种编程语言</li>
+<li>新增元素不会引起程序崩溃</li>
+<li>任意深度子元素</li>
+</ul>
+<h2 id="语言类比"><a href="#语言类比" class="headerlink" title="语言类比"></a>语言类比</h2><ul>
+<li>XML 和 markdown 和 latex 一样记录内容，但不是所见即所得</li>
+<li><h2 id="XML-和-json-类似，都是数据交互格式-xml-是重量级的，json-是轻量级的"><a href="#XML-和-json-类似，都是数据交互格式-xml-是重量级的，json-是轻量级的" class="headerlink" title="XML 和 json 类似，都是数据交互格式- xml 是重量级的，json 是轻量级的"></a>XML 和 json 类似，都是数据交互格式<br>- xml 是重量级的，json 是轻量级的</h2><ul>
+<li>xml 在传输过程中比较占带宽，json 占带宽少，易于压缩</li>
+<li>xml 和 json(<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/JavaScript">JavaScript</a> Object Notation, JS 对象简谱) 都用在项目交互下，xml 多用于做配置文件，json 用于数据交互</li>
+<li>json 可用 jackson，gson 等方法解析，xml 可用 dom，sax，demo4j 等方式解析</li>
+</ul>
+</li>
+</ul>
+<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/xml/xml_attributes.asp">教程</a></p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span> <span class="comment">&lt;!-- 这一行不属于xml元素--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是注释，xml只有这一种注释方法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span> <span class="comment">&lt;!-- 根元素（book的父元素）--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;COOKING&quot;</span>&gt;</span><span class="comment">&lt;!-- （bookstore的子元素）带性，属性的值必须带双引号--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>Everyday Italian<span class="tag">&lt;/<span class="name">title</span>&gt;</span> <span class="comment">&lt;!-- 所有元素都必须有关闭标签&lt;/&gt; --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">author</span>&gt;</span>Giada De Laurentiis<span class="tag">&lt;/<span class="name">author</span>&gt;</span> <span class="comment">&lt;!-- XML大小写敏感 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">price</span>&gt;</span>30.00<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;CHILDREN&quot;</span>&gt;</span><span class="comment">&lt;!-- 前一个kstore元素的同胞元素 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;WEB&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>Learning XML<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">author</span>&gt;</span>Erik T. Ray<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">year</span>&gt;</span>2003<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">price</span>&gt;</span>39.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ol>
+<li><p>所有 XML 元素都须有关闭标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is another paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is another paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若元素为空，可以折叠标签</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">src</span> = <span class="string">&quot;Hanover&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>XML 标签对大小写敏感</p>
+</li>
+<li><p>XML 必须正确地嵌套</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span>This text is bold and italic<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span>This text is bold and italic<span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>XML 文档必须有根元素</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">child</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">subchild</span>&gt;</span>.....<span class="tag">&lt;/<span class="name">subchild</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>XML 的属性值须加单&#x2F;双引号</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">note</span> <span class="attr">date</span>=<span class="string">&quot;08/08/2008&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;note date=&#x27;08/08/2008&#x27;&gt; --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实体引用(C 语言中的转义字符)</p>
+<table>
+<thead>
+<tr>
+<th>引用（转义）符号</th>
+<th>显示符号</th>
+<th>中文名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;lt;</td>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&amp;gt;</td>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&amp;amp;</td>
+<td>&amp;</td>
+<td>和号</td>
+</tr>
+<tr>
+<td>&amp;apos;</td>
+<td>‘</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>&amp;quot;</td>
+<td>“</td>
+<td>引号</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>XML 中的注释</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- This is a comment --&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 XML 中，空格会被保留</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTML: Hello my name is David. 输出: Hello my name is David.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">XML: Hello           my name is David.</span><br><span class="line">输出: Hello           my name is David.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>XML 以 LF 存储换行</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Windows 回车符 (CR) 和换行符 (LF)</span></span><br><span class="line"><span class="comment">     Unix 应用程序中，新行以 LF 字符存储</span></span><br><span class="line"><span class="comment">	 Macintosh 应用程序使用 CR 来存储新行</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="元素的结构"><a href="#元素的结构" class="headerlink" title="元素的结构"></a>元素的结构</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;CHILDREN&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">title</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;WEB&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">title</span>&gt;</span>Learning XML<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">author</span>&gt;</span>Erik T. Ray<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">year</span>&gt;</span>2003<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">price</span>&gt;</span>39.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>元素</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 一个完整的标签称为元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本文和属性</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 标签内部可以包含文本和属性 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;CHILDREN&quot;</span>&gt;</span> book name<span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="元素命名规则"><a href="#元素命名规则" class="headerlink" title="元素命名规则"></a>元素命名规则</h3><ul>
+<li>名称可以含字母、数字以及其他的字符</li>
+<li>名称不能以数字或者标点符号开始</li>
+<li>名称不能以字符 “xml”（或者 XML、Xml）开始</li>
+<li>名称不能包含空格</li>
+</ul>
+<h3 id="最佳命名习惯"><a href="#最佳命名习惯" class="headerlink" title="最佳命名习惯"></a>最佳命名习惯</h3><ul>
+<li>避免 “-“ 字符</li>
+<li>避免 “.” 字符</li>
+<li>避免 “:” 字符</li>
+</ul>
+<h3 id="属性和元素"><a href="#属性和元素" class="headerlink" title="属性和元素"></a>属性和元素</h3><ul>
+<li><p>尽量使用子元素而非属性</p>
+<blockquote>
+<p>属性和子元素元素可以提供同样的信息</p>
+</blockquote>
+<ul>
+<li>属性无法包含多重的值（元素可以）</li>
+<li>属性无法描述树结构（元素可以）</li>
+<li>属性不易扩展（为未来的变化）</li>
+<li>属性难以阅读和维护</li>
+</ul>
+</li>
+<li><p>元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素</p>
+</li>
+</ul>
+<h3 id="XML-语法验证"><a href="#XML-语法验证" class="headerlink" title="XML 语法验证"></a>XML 语法验证</h3><ul>
+<li>拥有正确语法的 XML 被称为“形式良好”的 XML</li>
+<li>通过 DTD 验证的 XML 是“合法”的 XML<ul>
+<li>DTD 的作用是定义 XML 文档的结构。它使用一系列合法的元素来定义文档结构。</li>
+<li>只要把 DOCTYPE 声明添加到代码中即可</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">note</span> [</span></span><br><span class="line"><span class="meta">  <span class="meta">&lt;!ELEMENT <span class="keyword">note</span> (<span class="keyword">to</span>,<span class="keyword">from</span>,<span class="keyword">heading</span>,<span class="keyword">body</span>)&gt;</span></span></span><br><span class="line"><span class="meta">  <span class="meta">&lt;!ELEMENT <span class="keyword">to</span>      (<span class="keyword">#PCDATA</span>)&gt;</span></span></span><br><span class="line"><span class="meta">  <span class="meta">&lt;!ELEMENT <span class="keyword">from</span>    (<span class="keyword">#PCDATA</span>)&gt;</span></span></span><br><span class="line"><span class="meta">  <span class="meta">&lt;!ELEMENT <span class="keyword">heading</span> (<span class="keyword">#PCDATA</span>)&gt;</span></span></span><br><span class="line"><span class="meta">  <span class="meta">&lt;!ELEMENT <span class="keyword">body</span>    (<span class="keyword">#PCDATA</span>)&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">Ffrom</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>Don&#x27;t forget the meeting!<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="XML-浏览器渲染显示"><a href="#XML-浏览器渲染显示" class="headerlink" title="XML 浏览器渲染显示"></a>XML 浏览器渲染显示</h3><ol>
+<li><p>浏览器打开一个 xml 文档后会如下显示</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">This XML file does not appear to have any style information associated with</span><br><span class="line">it. The document tree is shown below.</span><br><span class="line"><span class="comment">&lt;!--   Copyright w3school.com.cn  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    Don&#x27;t forget the meeting!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器默认显示 XML 源码的原因</p>
+<ol>
+<li>xml 标签是作者自定义的，浏览器无法依据固定样式显示</li>
+</ol>
+</li>
+<li><p>链接 CS 渲染 XML</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;ISO-8859-1&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml-stylesheet type=<span class="string">&quot;text/css&quot;</span> href=<span class="string">&quot;cd_catalog.css&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">CATALOG</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">CD</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>Empire Burlesque<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">ARTIST</span>&gt;</span>Bob Dylan<span class="tag">&lt;/<span class="name">ARTIST</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">COUNTRY</span>&gt;</span>USA<span class="tag">&lt;/<span class="name">COUNTRY</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">COMPANY</span>&gt;</span>Columbia<span class="tag">&lt;/<span class="name">COMPANY</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">PRICE</span>&gt;</span>10.90<span class="tag">&lt;/<span class="name">PRICE</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">YEAR</span>&gt;</span>1985<span class="tag">&lt;/<span class="name">YEAR</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">CD</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">CATALOG</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>链接 XSLT 渲染 XML</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;ISO-8859-1&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml-stylesheet type=<span class="string">&quot;text/xsl&quot;</span> href=<span class="string">&quot;simple.xsl&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">breakfast_menu</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">food</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Belgian Waffles<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>$5.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span></span><br><span class="line">       two of our famous Belgian Waffles</span><br><span class="line">    <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">calories</span>&gt;</span>650<span class="tag">&lt;/<span class="name">calories</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">food</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">breakfast_menu</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/15/XML/XML%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6joqlq000e5ktkfl064iw0" data-title="XML基础知识.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XML/" rel="tag">XML</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/12/15/Python/Python%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python语言VSCode环境.md
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E8%B4%AD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">云服务器选购.md</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">公网服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">内网服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/" rel="tag">生活笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 15px;">公网服务器</a> <a href="/tags/%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">内网服务器</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">生活笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">C语言VSCode环境.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">C语言基础知识.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">C语言循环依赖.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/">C语言改变指针指向.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Java语言基础知识.md</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

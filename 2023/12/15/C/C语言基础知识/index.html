@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>C语言基础知识.md | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="C 语言基础知识[toc] 基础数据类型基本数据类型构造数据类型 数组  数组作为入参 12345&#x2F;** \brief 作为入参时，需同时传入该数组的大小 \author Cyril Jiang \note *&#x2F;void Output_SetStates2CC2(ATC_BOOL abStatus[],const uint32_t uiSize)&#123;&#125;  函数指针数组 123&#x2F;*">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言基础知识.md">
+<meta property="og:url" content="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="C 语言基础知识[toc] 基础数据类型基本数据类型构造数据类型 数组  数组作为入参 12345&#x2F;** \brief 作为入参时，需同时传入该数组的大小 \author Cyril Jiang \note *&#x2F;void Output_SetStates2CC2(ATC_BOOL abStatus[],const uint32_t uiSize)&#123;&#125;  函数指针数组 123&#x2F;*">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/03/02/hj7oLMy3wlrz6e5.png">
+<meta property="article:published_time" content="2023-12-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-15T09:58:47.986Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/03/02/hj7oLMy3wlrz6e5.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-C/C语言基础知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
+  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      C语言基础知识.md
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="C-语言基础知识"><a href="#C-语言基础知识" class="headerlink" title="C 语言基础知识"></a>C 语言基础知识</h1><p>[toc]</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><h3 id="构造数据类型"><a href="#构造数据类型" class="headerlink" title="构造数据类型"></a>构造数据类型</h3><ol>
+<li><p>数组</p>
+<ol>
+<li><p>数组作为入参</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** \brief 作为入参时，需同时传入该数组的大小 \author Cyril Jiang \note */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Output_SetStates2CC2</span><span class="params">(ATC_BOOL abStatus[],<span class="type">const</span> <span class="type">uint32_t</span> uiSize)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数指针数组</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** \brief  函数指针形式 \author Cyril Jiang \note */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span><span class="params">(*foo)</span><span class="params">(<span class="type">int</span> a)</span> FunPoint;</span><br><span class="line">FunPoint funPoint[<span class="number">10</span>] = &#123;&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>结构体</p>
+</li>
+<li><p>共用体</p>
+</li>
+</ol>
+<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><ol>
+<li><p>enum 元素只能是 int 类型</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">E_EXAMPLE</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    E_ONE = <span class="number">0</span>,</span><br><span class="line">    E_TWO = <span class="number">0xFF</span>U,<span class="comment">//即使指明是unsigned int型,VS2019环境下仍然提示是int型</span></span><br><span class="line">    E_THREE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="指针类型"><a href="#指针类型" class="headerlink" title="指针类型"></a>指针类型</h3><ol>
+<li><p>数组指针</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数指针</p>
+</li>
+</ol>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><ol>
+<li><p>const 修饰指针</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>* ipadd[] = <span class="string">&quot;192.168.1.1&quot;</span>;</span><br><span class="line"><span class="type">char</span> * <span class="type">const</span> ip = &amp;ipadd;<span class="comment">/** \brief 指针ip的值不可改变  \author Cyril Jiang \note */</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* ip = &amp;ipadd;<span class="comment">/** \brief ip指向的内容不可改变  \author Cyril Jiang \note */</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>const 修饰变量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> PI = <span class="number">3.14</span>;<span class="comment">/** \brief 常值  \author Cyril Jiang \note */</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h3><ol>
+<li><p>头文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** \brief  加不加extern都一样，只要引用头文件就能访问到 \author Cyril Jiang \note */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="type">void</span> <span class="title function_">foo</span><span class="params">(<span class="type">void</span>)</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>源文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** \brief  声明其他源文件中的已定义函数 \author Cyril Jiang \note */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="type">void</span> <span class="title function_">foo</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="comment">/** \brief  声明其他源文件中的已初始化变量 \author Cyril Jiang \note */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="type">char</span>* ipadd[];</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><ol>
+<li><p>修饰局部变量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">inner</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/** \brief 该变量存储在静态区，退出函数不会被销毁。且只在第一次进入函数时初始化一次，常用作计数器  \author Cyril Jiang \note */</span></span><br><span class="line">    <span class="type">static</span> <span class="type">unsigned</span> <span class="type">int</span> count = <span class="number">0U</span>;</span><br><span class="line">    count++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修饰全局变量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** \brief 该变量存储在静态区，退出函数不会被销毁。其他源文件不能够访问  \author Cyril Jiang \note */</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> i = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修饰源文件函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** \brief 该函数不能被其他源文件调用  \author Cyril Jiang \note */</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">inner</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h3><ol>
+<li><p>它是一个关键字不要用作函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> size = <span class="keyword">sizeof</span> <span class="type">int</span>;</span><br><span class="line"><span class="type">int</span> size = <span class="keyword">sizeof</span>(<span class="type">int</span>);<span class="comment">//用作函数</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><h3 id="参数宏"><a href="#参数宏" class="headerlink" title="参数宏"></a>参数宏</h3><h3 id="常量宏"><a href="#常量宏" class="headerlink" title="常量宏"></a>常量宏</h3><h3 id="条件编译宏"><a href="#条件编译宏" class="headerlink" title="条件编译宏"></a>条件编译宏</h3><h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><h3 id="网络字节序"><a href="#网络字节序" class="headerlink" title="网络字节序"></a>网络字节序</h3><ol>
+<li><p>不同架构的计算机使用不同的字节序：</p>
+<table>
+<thead>
+<tr>
+<th>小端序</th>
+<th>大端序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Inter x86</td>
+<td>Power PC</td>
+</tr>
+<tr>
+<td>ARM</td>
+<td>MIPS UNIX</td>
+</tr>
+<tr>
+<td></td>
+<td>HP-PA UNIX</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>为了使异构计算机能够互相通信，规定了网络字节序为大端序</p>
+</li>
+<li><p>MSB 和 LSB 位</p>
+<ul>
+<li>LSB（Least Significant Bit，最低有效位）</li>
+<li>MSB（Most Significant Bit，最高有效位）</li>
+</ul>
+</li>
+<li><p>大端序和小端序的差异<br><img src="https://i.loli.net/2021/03/02/hj7oLMy3wlrz6e5.png"></p>
+</li>
+<li><p>以 C 语言中的整型变量举例</p>
+</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** \brief  0x87是最高有效位，0x21是最低有效位 \author Cyril Jiang \note */</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> = <span class="number">0x87654321</span>U;</span><br><span class="line"><span class="comment">/** \brief 需要说明的是我们无法看出0x87654321U在内存的分布情况  \author Cyril Jiang \note */</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>0x87654321U</code>第 31 位的 <code>1</code>即为 MSB，第 0 位的 <code>1</code>即为 LSB</p>
+</blockquote>
+<ol start="6">
+<li>转换实例（C 实现）</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 不能使用库函数的情况下，编写代码实现unsigned short小端序转网络字节序</span></span><br><span class="line"><span class="comment"> *	\para in v16是X86架构下Win10系统的本地字节序（小端序）</span></span><br><span class="line"><span class="comment"> *	\para out pOut是转换完成的大端序地址</span></span><br><span class="line"><span class="comment"> *  \para in offset 是相对pOut首地址的地址偏移量</span></span><br><span class="line"><span class="comment"> *  \ret 占用字节数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span>  <span class="title function_">BE16To8</span><span class="params">(<span class="type">const</span> <span class="type">unsigned</span> <span class="type">short</span> v16, <span class="type">unsigned</span> <span class="type">char</span> pOut[], <span class="type">const</span> <span class="type">unsigned</span> <span class="type">int</span> offset)</span></span><br><span class="line">&#123;</span><br><span class="line">    pOut[offset] = (<span class="type">unsigned</span> <span class="type">char</span>) ((v16 &gt;&gt; <span class="number">8U</span>) &amp; <span class="number">0xff</span>U);</span><br><span class="line">    pOut[offset + <span class="number">1U</span>] = (<span class="type">unsigned</span> <span class="type">char</span>) ((v16) &amp; <span class="number">0xff</span>U);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2U</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clq6joqlg00015ktk5ynh8ezj" data-title="C语言基础知识.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C语言VSCode环境.md
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C语言循环依赖.md</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">公网服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">内网服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/" rel="tag">生活笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 15px;">公网服务器</a> <a href="/tags/%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">内网服务器</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">生活笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">C语言VSCode环境.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">C语言基础知识.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">C语言循环依赖.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/">C语言改变指针指向.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Java语言基础知识.md</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

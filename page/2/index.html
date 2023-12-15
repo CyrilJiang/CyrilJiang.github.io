@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-公网服务器/天气邮箱播报" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%A4%A9%E6%B0%94%E9%82%AE%E7%AE%B1%E6%92%AD%E6%8A%A5/" class="article-date">
+  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%A4%A9%E6%B0%94%E9%82%AE%E7%AE%B1%E6%92%AD%E6%8A%A5/">天气邮箱播报.md</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="天气邮箱播报"><a href="#天气邮箱播报" class="headerlink" title="天气邮箱播报"></a>天气邮箱播报</h1><h2 id="和风天气API"><a href="#和风天气API" class="headerlink" title="和风天气API"></a>和风天气API</h2><h3 id="获取API密钥"><a href="#获取API密钥" class="headerlink" title="获取API密钥"></a>获取API密钥</h3><p>注册<a target="_blank" rel="noopener" href="https://dev.qweather.com/">和风天气开发者账号</a>后进入控制台<br>创建项目，改项目使用免费订阅，生成 Web API。复制该API的密钥记为“YOUR_KEY”之后要用到。</p>
+<h3 id="获取URL"><a href="#获取URL" class="headerlink" title="获取URL"></a>获取URL</h3><p>回到首页，开发文档页面查询“每日天气预报”的URL格式，比如获取嘉兴未来3天的天气预报</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://devapi.qweather.com/v7/weather/3d?location=101010100&amp;key=YOUR_KEY">https://devapi.qweather.com/v7/weather/3d?location=101010100&amp;key=YOUR_KEY</a></p>
+</blockquote>
+<h2 id="处理json"><a href="#处理json" class="headerlink" title="处理json"></a>处理json</h2><p>和风天气应答的报文经过gzip压缩，所以我们需要使用gzip解压才能还原json格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WEATHER=$(curl <span class="string">&quot;https://devapi.qweather.com/v7/weather/3d?location=101210301&amp;key=YOUR_KEY&quot;</span> | gzip -d)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$WEATHER</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="jq解析"><a href="#jq解析" class="headerlink" title="jq解析"></a>jq解析</h3><p>需使用jq工具解析json格式的字符串</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RET=$(<span class="built_in">echo</span> <span class="variable">$WEATHER</span> | jq -r <span class="string">&#x27;.daily[]|.fxDate,.textDay&#x27;</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$RET</span></span><br></pre></td></tr></table></figure>
+
+<p>处理后得到<br>2023-12-03<br>多云<br>2023-12-04<br>小雨<br>2023-12-05<br>多云</p>
+<h2 id="邮箱API"><a href="#邮箱API" class="headerlink" title="邮箱API"></a>邮箱API</h2><h3 id="sendemail发送邮件"><a href="#sendemail发送邮件" class="headerlink" title="sendemail发送邮件"></a>sendemail发送邮件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sendemail -f 发送邮箱 -t 接收邮箱 -u 邮件主题字符串 -s 中转邮箱服务器 -m 邮件内容字符串 -xu 邮箱账号字符串 -xp 邮箱密码字符串</span><br></pre></td></tr></table></figure>
+
+<h2 id="发送天气预报邮件"><a href="#发送天气预报邮件" class="headerlink" title="发送天气预报邮件"></a>发送天气预报邮件</h2><p>编写一个bash脚本 weather.sh 执行一次发送一次天气预报</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WEATHER=$(curl -s <span class="string">&quot;https://devapi.qweather.com/v7/weather/3d?location=101210301&amp;key=OUR_KEY&quot;</span> | gzip -d)</span><br><span class="line">RET=$(<span class="built_in">echo</span> <span class="variable">$WEATHER</span> | jq -r <span class="string">&#x27;.daily[]|.fxDate,.textDay&#x27;</span>)</span><br><span class="line"></span><br><span class="line">sendemail -f 发送邮箱 -t 接收邮箱 -u 邮件主题字符串 -s 中转邮箱服务器 -m 邮件内容字符串 -xu 邮箱账号字符串 -xp 邮箱密码字符串</span><br></pre></td></tr></table></figure>
+
+<h3 id="每天发送"><a href="#每天发送" class="headerlink" title="每天发送"></a>每天发送</h3><p>编辑计划任务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>在注释后面添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># m h  dom mon dow   command</span></span><br><span class="line">30 8 * * * bash /root/weather.sh</span><br></pre></td></tr></table></figure>
+
+<p>这样每天早上8:30就能收到天气预报啦！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%A4%A9%E6%B0%94%E9%82%AE%E7%AE%B1%E6%92%AD%E6%8A%A5/" data-id="clq6joqls000i5ktk73cwfthz" data-title="天气邮箱播报.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">公网服务器</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-公网服务器/架设Typecho博客系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%9E%B6%E8%AE%BETypecho%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%9E%B6%E8%AE%BETypecho%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/">架设Typecho博客系统.md</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="架设-Typecho-博客系统"><a href="#架设-Typecho-博客系统" class="headerlink" title="架设 Typecho 博客系统"></a>架设 Typecho 博客系统</h1><p>[toc]</p>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><h3 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-apache-容器"><a href="#安装-apache-容器" class="headerlink" title="安装 apache 容器"></a>安装 apache 容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2 apache2-utils</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-php-支持"><a href="#安装-php-支持" class="headerlink" title="安装 php 支持"></a>安装 php 支持</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libapache2-mod-php7.2</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-php-运行环境"><a href="#安装-php-运行环境" class="headerlink" title="安装 php 运行环境"></a>安装 php 运行环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php7.2</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-php-数据库支持"><a href="#安装-php-数据库支持" class="headerlink" title="安装 php 数据库支持"></a>安装 php 数据库支持</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install sqlite3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php7.2-sqlite3 php-mbstring</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="检查运行环境"><a href="#检查运行环境" class="headerlink" title="检查运行环境"></a>检查运行环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> /var/www/html /var/www/html_backup</span><br><span class="line"><span class="built_in">mkdir</span> /var/www/html</span><br><span class="line"><span class="built_in">touch</span> /var/www/html/index.php</span><br><span class="line">nano /var/www/html/index.php</span><br></pre></td></tr></table></figure>
+
+<p>写入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">phpinfo</span>(); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>访问本地网址,如果有 php 版本信息就证明运行环境正常<br><a target="_blank" rel="noopener" href="http://localhost/">本地环回</a></p>
+<h2 id="安装-Typecho"><a href="#安装-Typecho" class="headerlink" title="安装 Typecho"></a>安装 Typecho</h2><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>从<a target="_blank" rel="noopener" href="https://typecho.org/">Typecho</a>下载源码，并解压</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -r /var/www/html</span><br><span class="line">tar zxvf typecho-1.2.1.tar.gz</span><br><span class="line"><span class="built_in">mv</span> typecho-1.2.1 var/www/html</span><br><span class="line"><span class="built_in">chmod</span> -R 777 var/www/html</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>访问本地网址,安装之。<br><a target="_blank" rel="noopener" href="http://localhost/">本地环回</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/15/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%9E%B6%E8%AE%BETypecho%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/" data-id="clq6joqlt000k5ktk86mp42so" data-title="架设Typecho博客系统.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">公网服务器</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-内网服务器/内网穿透树莓派" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/15/%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%A0%91%E8%8E%93%E6%B4%BE/" class="article-date">
+  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/15/%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%A0%91%E8%8E%93%E6%B4%BE/">内网穿透树莓派.md</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="内网穿透树莓派"><a href="#内网穿透树莓派" class="headerlink" title="内网穿透树莓派"></a>内网穿透树莓派</h1><p>[toc]</p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>商业服务器需要花钱购买。那么有没有免费的服务器呢？答案是有的。就是本期的主角：树莓派 3B(当然 4B 也是一样的)。<br>我们使用树莓派作为服务器，并且使用内外穿透工具。使得服务端口的暴露到公网上，实现随时随地访问家庭服务器。</p>
+<h2 id="树莓派-3B"><a href="#树莓派-3B" class="headerlink" title="树莓派 3B"></a>树莓派 3B</h2><p>树莓派 3B 主要有以下优点：</p>
+<ol>
+<li><p>功耗低<br>树莓派 3B 的默频功耗在 5W 左右。以下是<a target="_blank" rel="noopener" href="http://wzyq.zjzwfw.gov.cn/art/2018/4/17/art_16377_17375327.html">浙江省电网销售电价表</a>的部分截取内容</p>
+<table>
+<thead>
+<tr>
+<th>居民生活用电</th>
+<th>电度电价</th>
+<th>高峰电价</th>
+<th>低谷电价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>年用电 2760 千瓦时及以下部分</td>
+<td>0.5380</td>
+<td>0.5680</td>
+<td>0.2880</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>居民生活用电分时电价时段划分：高峰时段 8：00-22：00，低谷时段 22：00-次日 8：00</p>
+</blockquote>
+<p>我们可以得到一年的电费为：</p>
+<p>$$<br>电费 &#x3D; 0.005kW<em>24H</em>365Day*0.5380元&#x2F;kW·h &#x3D; 23.5644元<br>$$</p>
+</li>
+<li><p>价格便宜<br>树莓派 3B 目前在某鱼二手价格 100 元左右</p>
+</li>
+<li><p>学习资源丰富<br>入门教程，包教包会。<a target="_blank" rel="noopener" href="https://shumeipai.nxez.com/">树莓派实验室</a></p>
+</li>
+<li><p>支持各种镜像<br>国内系统镜像，流程下载体验。<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/raspbian-images/raspios_armhf/">清华大学开源软件镜像站</a></p>
+</li>
+<li><p>来电自启动<br>避免家中断电失联的尴尬情况</p>
+</li>
+</ol>
+<h2 id="前期工作"><a href="#前期工作" class="headerlink" title="前期工作"></a>前期工作</h2><p>装系统：<a target="_blank" rel="noopener" href="https://shumeipai.nxez.com/2013/09/07/raspberry-pi-under-windows-system-installation-to-sd-card.html">Windowns 下安装树莓派系统到 SD 卡</a><br>联网：<a target="_blank" rel="noopener" href="https://shumeipai.nxez.com/2017/09/13/raspberry-pi-network-configuration-before-boot.html">无屏幕和键盘配置树莓派 WiFi 和 SSH</a></p>
+<h2 id="花生壳免费穿透内网"><a href="#花生壳免费穿透内网" class="headerlink" title="花生壳免费穿透内网"></a>花生壳免费穿透内网</h2><ol>
+<li>首先下载 Raspberry Pi 32 位版本的花生壳客户端</li>
+<li>使用 MobaXterm 自带的 sftp 服务，上传客户端到树莓派中</li>
+<li>按照教程安装：<a target="_blank" rel="noopener" href="https://service.oray.com/question/11639.html">花生壳 5.0 for 树莓派</a></li>
+</ol>
+<h3 id="内网环境"><a href="#内网环境" class="headerlink" title="内网环境"></a>内网环境</h3><p>内网端口映射应如下设置</p>
+<p><img src="https://i.loli.net/2021/02/15/qEM4rLbzB1knGJD.png" alt="Snipaste_2021-02-15_21-44-41.png"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>花生壳 DDNS,每次重启都会自动开启服务，无需额外设置。真正能够做到一次配置永久在线。且年节省成本约 76 元（按照阿里学生机 99 元&#x2F;年计算）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/15/%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%A0%91%E8%8E%93%E6%B4%BE/" data-id="clq6joqlu000m5ktk6t6r8at8" data-title="内网穿透树莓派.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">内网服务器</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-生活笔记/手动挡驾车总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/15/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/%E6%89%8B%E5%8A%A8%E6%8C%A1%E9%A9%BE%E8%BD%A6%E6%80%BB%E7%BB%93/" class="article-date">
+  <time class="dt-published" datetime="2023-12-14T16:00:00.000Z" itemprop="datePublished">2023-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/15/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/%E6%89%8B%E5%8A%A8%E6%8C%A1%E9%A9%BE%E8%BD%A6%E6%80%BB%E7%BB%93/">手动挡驾车总结.md</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="手动挡驾车总结"><a href="#手动挡驾车总结" class="headerlink" title="手动挡驾车总结"></a>手动挡驾车总结</h1><p>[toc]</p>
+<h2 id="起步熄火"><a href="#起步熄火" class="headerlink" title="起步熄火"></a>起步熄火</h2><h3 id="平地一档起步（易）"><a href="#平地一档起步（易）" class="headerlink" title="平地一档起步（易）"></a>平地一档起步（易）</h3><ul>
+<li>不踏脚刹时，离合器起得太快，阻力太大</li>
+<li>踩脚刹时，此时虽然离合器起得不快，但是受脚刹影响</li>
+<li>合器抬起时车身抖动，此时如果不放脚刹照样熄火</li>
+</ul>
+<h3 id="坡地一档起步（中等）"><a href="#坡地一档起步（中等）" class="headerlink" title="坡地一档起步（中等）"></a>坡地一档起步（中等）</h3><ul>
+<li>受车身重力影响，此时起步转速不足以带动受车身自重阻力影响下的车辆</li>
+<li>此时，必须稍稍加油门同时缓慢抬起离合器，若不加油门则熄火</li>
+</ul>
+<h3 id="台阶一档起步（难）"><a href="#台阶一档起步（难）" class="headerlink" title="台阶一档起步（难）"></a>台阶一档起步（难）</h3><ul>
+<li>此时车辆必须克服车重做功，抬升一定高度</li>
+<li>此时，必须稍稍加油门同时缓慢抬起离合器，若不加油门则熄火</li>
+</ul>
+<p>总结</p>
+<p>熄火原因都是由于阻力太大引起的。</p>
+<h2 id="侧放停车"><a href="#侧放停车" class="headerlink" title="侧放停车"></a>侧放停车</h2><ol>
+<li>因为人坐在车内，视野受限。必须参照旁边物体，使得车身与参照物平行。</li>
+<li>然后方向打死，即可倒车入库</li>
+<li>在停车过程中，通过调整方向盘，使得车身与车库的墙壁（白线）平行。</li>
+<li>继续倒车，直至车尾贴近车库（白线）尾端，停车。</li>
+</ol>
+<p>总结</p>
+<p>倒车时方向与方向盘的转向是相反的</p>
+<ul>
+<li>前进时，方向盘转的方向就是车头转向。</li>
+<li>后退时，方向盘转向是车尾转向。</li>
+</ul>
+<h2 id="换挡"><a href="#换挡" class="headerlink" title="换挡"></a>换挡</h2><p>首先离合器踩到底，然后换挡，还完缓慢松开离合器</p>
+<h2 id="刹车"><a href="#刹车" class="headerlink" title="刹车"></a>刹车</h2><p>挺稳时使用手刹，完全抱死车轮。<br>刹车时，若遇到车身震动，可踏下离合器，较少阻力，避免熄火。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/15/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/%E6%89%8B%E5%8A%A8%E6%8C%A1%E9%A9%BE%E8%BD%A6%E6%80%BB%E7%BB%93/" data-id="clq6joqlz00125ktkepdh8z92" data-title="手动挡驾车总结.md" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/" rel="tag">生活笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">公网服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">内网服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/" rel="tag">生活笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 15px;">公网服务器</a> <a href="/tags/%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">内网服务器</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">生活笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/">C语言VSCode环境.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">C语言基础知识.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">C语言循环依赖.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/">C语言改变指针指向.md</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/15/Java/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">Java语言基础知识.md</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
