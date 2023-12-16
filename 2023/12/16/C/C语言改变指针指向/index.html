@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Tag: 公网服务器 | Hexo</title>
+  <title>C语言改变指针指向 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
+  <meta name="description" content="C 语言改变指针指向[toc] 问题入参为一个指针，希望在函数内改变其指向。调用函数传入的是一个指针类型实参。经测试多遍，一直没能改变其指向。 123456int NET_ARG_DoorFSMgetCurEvtTab(NET_FSM_S* fsm, OUT NET_ACTION_ST* curActTab)&#123;    NET_STA_TAB_ST *curStaTab &#x3D; &amp;(f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言改变指针指向">
+<meta property="og:url" content="http://example.com/2023/12/16/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="C 语言改变指针指向[toc] 问题入参为一个指针，希望在函数内改变其指向。调用函数传入的是一个指针类型实参。经测试多遍，一直没能改变其指向。 123456int NET_ARG_DoorFSMgetCurEvtTab(NET_FSM_S* fsm, OUT NET_ACTION_ST* curActTab)&#123;    NET_STA_TAB_ST *curStaTab &#x3D; &amp;(f">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-16T11:02:02.838Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -67,77 +72,73 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/12/16/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E8%B4%AD/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-12-15T16:00:00.000Z" itemprop="datePublished">Dec 16</time>
+        <section id="main"><article id="post-C/C语言改变指针指向" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/16/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/" class="article-date">
+  <time class="dt-published" datetime="2023-12-15T16:00:00.000Z" itemprop="datePublished">2023-12-16</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/12/16/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E8%B4%AD/">云服务器选购</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      C语言改变指针指向
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/12/16/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%A4%A9%E6%B0%94%E9%82%AE%E7%AE%B1%E6%92%AD%E6%8A%A5/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-12-15T16:00:00.000Z" itemprop="datePublished">Dec 16</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/12/16/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%A4%A9%E6%B0%94%E9%82%AE%E7%AE%B1%E6%92%AD%E6%8A%A5/">天气邮箱播报</a>
-    </h1>
-  
+        <h1 id="C-语言改变指针指向"><a href="#C-语言改变指针指向" class="headerlink" title="C 语言改变指针指向"></a>C 语言改变指针指向</h1><p>[toc]</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>入参为一个指针，希望在函数内改变其指向。调用函数传入的是一个指针类型实参。经测试多遍，一直没能改变其指向。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">NET_ARG_DoorFSMgetCurEvtTab</span><span class="params">(NET_FSM_S* fsm, OUT NET_ACTION_ST* curActTab)</span></span><br><span class="line">&#123;</span><br><span class="line">    NET_STA_TAB_ST *curStaTab = &amp;(fsm-&gt;curStaTab[fsm-&gt;getCurState(fsm)]);</span><br><span class="line">    curActTab = &amp;curStaTab-&gt;stActTab[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> curStaTab-&gt;iActCnt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/12/16/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%9E%B6%E8%AE%BETypecho%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-12-15T16:00:00.000Z" itemprop="datePublished">Dec 16</time>
-</a>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>突然想到指针也是一个变量。只要是变量，传入的实参和形参是分离的，也就是说计算机会重新给入参分配栈空间。</p>
+<p>那么，解决的方法就是在调用者处传入一个指针变量的地址。在被调用处通过这个指针变量的地址获取实际的指针变量修改。修改后：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">NET_ARG_DoorFSMgetCurEvtTab</span><span class="params">(NET_FSM_S* fsm, OUT NET_ACTION_ST** curActTab)</span></span><br><span class="line">&#123;</span><br><span class="line">    NET_STA_TAB_ST *curStaTab = &amp;(fsm-&gt;curStaTab[fsm-&gt;getCurState(fsm)]);</span><br><span class="line">    *curActTab = &amp;curStaTab-&gt;stActTab[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> curStaTab-&gt;iActCnt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方法是通过将指针地址作为指针的替身傀儡。消除栈分配内存的影响，从而避开了被重新初始化的命运。</p>
+<h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><p>我真是逗 o((⊙﹏⊙))o.，这不是双重指针吗？</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/12/16/%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%9E%B6%E8%AE%BETypecho%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/">架设Typecho博客系统</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/16/C/C%E8%AF%AD%E8%A8%80%E6%94%B9%E5%8F%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91/" data-id="clq7y9vd70001i0tkhnj2fzf7" data-title="C语言改变指针指向" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/12/16/C/C%E8%AF%AD%E8%A8%80VSCode%E7%8E%AF%E5%A2%83/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C语言VSCode环境
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/12/16/C/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C语言基础知识</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
